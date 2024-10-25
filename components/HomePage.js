@@ -1,35 +1,83 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useRef } from 'react';
 
 const Home = () => {
+  const scrollContainerRef = useRef(null);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    let scrollAmount = 0;
+    const scrollStep = 1; // Adjust this for speed
+    const scrollInterval = 20; // Milliseconds
+
+    // Scroll function to auto-scroll horizontally
+    const scrollHorizontally = () => {
+      if (container) {
+        scrollAmount += scrollStep; // Increment scroll position
+        container.scrollLeft = scrollAmount;
+
+        // Reset scroll position to the start when the end is reached
+        if (scrollAmount >= container.scrollWidth / 2) {
+          scrollAmount = 0; // Reset scroll amount for seamless scrolling
+        }
+      }
+    };
+
+    // Set interval to scroll every `scrollInterval` ms
+    const interval = setInterval(scrollHorizontally, scrollInterval);
+
+    // Cleanup on unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  // Create a duplicate array for the infinite scroll effect
+  const premiumWebsites = Array(10)
+    .fill()
+    .map((_, index) => (
+      <div
+        key={index}
+        className="border border-black rounded-lg overflow-hidden w-64 h-40"
+      >
+        <img
+          src={`https://via.placeholder.com/300x200?text=Image+${index + 1}`}
+          alt={`Premium Website ${index + 1}`}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    ));
+
   return (
     <div className="w-full mx-auto px-4 py-8 bg-white">
       {/* Hero Section */}
-      <section className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 mb-16">
-        <div className="text-center lg:text-left lg:max-w-md">
-          <h3 className="text-lg md:text-xl font-semibold text-blue-500">
+      <section className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-16">
+        {/* Left side: Image */}
+        <div className="w-full max-w-sm mx-auto lg:w-1/2">
+          <img
+            src="https://via.placeholder.com/400x300?text=Laptop+Image"
+            alt="Laptop Model"
+            className="w-full object-cover rounded-lg border border-black"
+          />
+        </div>
+
+        {/* Right side: Text */}
+        <div className="text-center lg:text-left lg:w-1/2">
+          <h3 className="text-lg md:text-xl font-semibold text-blue-700">
             New Arrival
           </h3>
           <h1 className="text-3xl md:text-4xl font-bold mt-2">
             Discover Our New Collection
           </h1>
-          <p className="text-sm md:text-base text-gray-600 mt-4">
-            Check out our new templates and order now to make your own websites
-            for your business, portfolio, etc.
+          <p className="text-sm md:text-base text-gray-600 w-[500px] mt-4">
+            Check out our new templates and order now to create beautiful websites
+            for your business, portfolio, or online store.
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+          <button className="mt-6 px-6 py-3 bg-blue-700 text-white rounded-full w-60 hover:bg-blue-600 transition">
             Buy Now
           </button>
         </div>
-        <div className="w-full max-w-sm mx-auto">
-          <img
-            src="path-to-hero-image"
-            alt="Website Illustration"
-            className="w-full object-cover"
-          />
-        </div>
       </section>
 
-      {/* Trending Websites */}
+      {/* Trending Websites Section */}
       <section className="text-center mb-16">
         <h2 className="text-xl md:text-2xl font-bold">
           Trending Websites on Markets
@@ -37,10 +85,23 @@ const Home = () => {
         <p className="text-sm md:text-base text-gray-500 mt-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
-        <div className="flex flex-col sm:flex-row justify-around mt-6 text-blue-500 font-semibold gap-4">
-          <div>WordPress Theme Websites</div>
-          <div>Portfolio Theme Websites</div>
-          <div>E-Commerce Theme Websites</div>
+
+        <div className="flex flex-wrap justify-center gap-4 mt-6 text-blue-700 font-semibold">
+          {trendingWebsites.map((website, index) => (
+            <div
+              key={index}
+              className="border border-black rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow w-64"
+            >
+              <img
+                src={website.image}
+                alt={website.name}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-2 text-center">
+                <h3 className="text-lg font-semibold">{website.name}</h3>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -53,7 +114,7 @@ const Home = () => {
           {productData.map((product, index) => (
             <div
               key={index}
-              className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+              className="border border-black rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
             >
               <img
                 src={product.image}
@@ -62,25 +123,31 @@ const Home = () => {
               />
               <div className="p-4 text-center">
                 <h3 className="text-lg font-semibold">{product.name}</h3>
-                <p className="text-blue-500 mt-2">{product.price}</p>
+                <p className="text-blue-700 mt-2">{product.price}</p>
               </div>
             </div>
           ))}
         </div>
-        <button className="block mx-auto mt-6 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+        <button className="block mx-auto mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-600 transition">
           Show More
         </button>
       </section>
 
       {/* Premium Websites Section */}
       <section className="text-center mb-16">
-        <h2 className="text-xl md:text-2xl font-bold">
-          50+ Premium Websites
-        </h2>
+        <h2 className="text-xl md:text-2xl font-bold">50+ Premium Websites</h2>
         <p className="text-sm md:text-base text-gray-500 mt-2">
           Our designer already made a list of premium and professional websites.
         </p>
-        <button className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+
+        {/* Horizontal Scroll Section */}
+        <div className="mt-8 overflow-x-auto" ref={scrollContainerRef}>
+          <div className="flex gap-4 w-max">
+            {premiumWebsites}
+            {premiumWebsites} {/* Duplicate for infinite scroll effect */}
+          </div>
+        </div>
+        <button className="mt-6 px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-600 transition">
           Explore More
         </button>
       </section>
@@ -92,12 +159,13 @@ const Home = () => {
         </h2>
         <div className="flex flex-wrap gap-4 mt-8">
           {worksData.map((work, index) => (
-            <img
-              key={index}
-              src={work.image}
-              alt={`Work ${index + 1}`}
-              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 object-cover rounded-lg"
-            />
+            <div key={index} className="border border-black rounded-lg overflow-hidden">
+              <img
+                src={work.image}
+                alt={`Work ${index + 1}`}
+                className="w-full object-cover"
+              />
+            </div>
           ))}
         </div>
       </section>
@@ -117,7 +185,12 @@ const productData = [
   { name: 'College Website', price: '$87', image: 'path-to-image' },
 ];
 
-// Example works data
+const trendingWebsites = [
+  { name: 'WordPress Theme Websites', image: 'path-to-wordpress-image' },
+  { name: 'Portfolio Theme Websites', image: 'path-to-portfolio-image' },
+  { name: 'E-Commerce Theme Websites', image: 'path-to-ecommerce-image' },
+];
+
 const worksData = [
   { image: 'path-to-work-image1' },
   { image: 'path-to-work-image2' },
