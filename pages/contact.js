@@ -48,7 +48,7 @@ export default function ContactPage() {
               Get in Touch With Us
             </h2>
             <p className="text-gray-600 mb-6">
-              For any inquiries or support, please don't hesitate to contact us. We're here to help!
+              For any inquiries or support, please don&apos;t hesitate to contact us. We&apos;re here to help!
             </p>
             <div className="space-y-4">
               <div className="flex items-start">
