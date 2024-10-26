@@ -129,7 +129,7 @@ const Home = () => {
       </section>
 
       {/* Premium Websites Section */}
-      <section className="text-center py-10 bg-gray-400 mb-12">
+      <section className="text-center py-10 bg-gray-200 mb-12">
         <h2 className="text-lg sm:text-2xl font-bold">50+ Premium Websites</h2>
         <p className="text-sm sm:text-base text-gray-500 mt-2">
           Our designer already made a list of premium and professional websites.
