@@ -54,14 +54,14 @@ const Home = () => {
         }}
       >
         <div className="lg:w-1/2" />
-        <div className="text-center lg:text-left m-5 py-10 lg:pl-12 bg-white bg-opacity-50 backdrop-blur-[40px] lg:py-10 lg:px-16 rounded-lg shadow-lg">
+        <div className="text-center lg:text-left m-5 py-10 lg:pl-12 bg-white bg-opacity-50 backdrop-blur-3xl lg:py-10 lg:px-16 sm:h-80 rounded-lg shadow-lg">
           <h3 className="text-lg sm:text-xl font-semibold text-blue-700">
             New Arrival
           </h3>
-          <h1 className="text-2xl sm:text-5xl font-bold mt-2">
+          <h1 className="text-2xl sm:text-4xl font-bold mt-2">
             Discover Our <br /> New Collection
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 mt-4 max-w-md mx-auto lg:mx-0">
+          <p className="text-sm sm:text-sm sm:text-base text-gray-600 mt-4 max-w-md mx-auto lg:mx-0">
             Check out our new templates and order now to create beautiful
             websites for your business, portfolio, or online store.
           </p>
