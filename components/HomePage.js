@@ -298,6 +298,7 @@ const trendingWebsites = [
   { name: "Website 3", image: "https://via.placeholder.com/300x200" },
   { name: "Website 4", image: "https://via.placeholder.com/300x200" },
   { name: "Website 5", image: "https://via.placeholder.com/300x200" },
+  { name: "Website 6", image: "https://via.placeholder.com/300x200" },
 ];
 
 const productData = [
@@ -318,6 +319,26 @@ const productData = [
   },
   {
     name: "Product 4",
+    price: "$399",
+    image: "https://via.placeholder.com/300x200",
+  },
+  {
+    name: "Product 5",
+    price: "$399",
+    image: "https://via.placeholder.com/300x200",
+  },
+  {
+    name: "Product 6",
+    price: "$399",
+    image: "https://via.placeholder.com/300x200",
+  },
+  {
+    name: "Product 7",
+    price: "$399",
+    image: "https://via.placeholder.com/300x200",
+  },
+  {
+    name: "Product 8",
     price: "$399",
     image: "https://via.placeholder.com/300x200",
   },
