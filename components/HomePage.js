@@ -31,13 +31,16 @@ const Home = () => {
     .map((_, index) => (
       <div
         key={index}
-        className="border border-black rounded-lg overflow-hidden w-48 h-32 sm:w-64 sm:h-40"
+        className="border border-black rounded-lg overflow-hidden w-48 h-32 sm:w-64 sm:h-40 relative group"
       >
         <img
           src={`https://via.placeholder.com/300x200?text=Image+${index + 1}`}
           alt={`Premium Website ${index + 1}`}
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <h3 className="text-white font-semibold text-lg">View Project</h3>
+        </div>
       </div>
     ));
 
@@ -81,13 +84,18 @@ const Home = () => {
           {trendingWebsites.map((website, index) => (
             <div
               key={index}
-              className="border border-black p-5 shadow-md hover:shadow-lg transition-shadow w-46 h-72 sm:w-64"
+              className="group border border-black p-5 shadow-md hover:shadow-lg transition-shadow w-46 h-72 sm:w-64 relative overflow-hidden"
             >
               <img
                 src={website.image}
                 alt={website.name}
-                className="w-full h-32 object-cover"
+                className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <h3 className="text-white font-semibold text-lg">
+                  View Project
+                </h3>
+              </div>
               <div className="p-2">
                 <h3 className="text-base sm:text-lg font-semibold">
                   {website.name}
@@ -107,13 +115,18 @@ const Home = () => {
           {productData.map((product, index) => (
             <div
               key={index}
-              className="border border-black shadow-md hover:shadow-lg transition-shadow"
+              className="group relative overflow-hidden border border-black shadow-md hover:shadow-lg transition-shadow"
             >
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-48 sm:h-72 object-cover"
+                className="w-full h-48 sm:h-72 object-cover transition-transform duration-300 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <h3 className="text-white font-semibold text-lg">
+                  View Project
+                </h3>
+              </div>
               <div className="p-3 text-center bg-gray-200">
                 <h3 className="text-base sm:text-lg font-semibold">
                   {product.name}
@@ -150,50 +163,174 @@ const Home = () => {
         </button>
       </section>
 
-      {/* Our Works Section */}
-      <section className="mb-12">
-        <h2 className="text-lg sm:text-2xl font-bold text-center">Our Works</h2>
-        <div className="flex flex-wrap gap-4 mt-6">
-          {worksData.map((work, index) => (
-            <div
-              key={index}
-              className="border border-black rounded-lg overflow-hidden"
-            >
-              <img
-                src={work.image}
-                alt={`Work ${index + 1}`}
-                className="w-full object-cover"
-              />
-            </div>
-          ))}
+     {/* Our Works Section */}
+<section className="mb-12">
+  <h2 className="text-lg sm:text-2xl font-bold text-center">Our Works</h2>
+  <div className="flex flex-col sm:flex-row justify-center mt-6 ">
+    {/* Left Side: Works 1, 2, 3, and 4 */}
+    <div className="flex flex-col gap-4 sm:w-1/2 ">
+      {/* Row 1: Work 1 and Work 2 */}
+      <div className="flex gap-4">
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-40 h-28 sm:h-36">
+          <img
+            src={worksData[0].image}
+            alt="Work 1"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
         </div>
-      </section>
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-48 h-28 sm:h-36">
+          <img
+            src={worksData[1].image}
+            alt="Work 2"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
+        </div>
+      </div>
+
+      {/* Row 2: Work 3 and Work 4 */}
+      <div className="flex gap-4">
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-48 h-28 sm:h-36">
+          <img
+            src={worksData[2].image}
+            alt="Work 3"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
+        </div>
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-40 h-28 sm:h-36">
+          <img
+            src={worksData[3].image}
+            alt="Work 4"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Center Work: Work 5 */}
+    <div className="flex justify-center items-center mx-20 mb-4 sm:mb-0 sm:w-1/2">
+      <div className="group relative overflow-hidden rounded-lg  shadow-md hover:shadow-lg transition-shadow duration-300  sm:m-0 m-10 w-full h-50 sm:w-68 sm:h-58">
+        <img
+          src={worksData[4].image}
+          alt="Work 5"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <h3 className="text-white font-semibold text-lg">View Project</h3>
+        </div>
+      </div>
+    </div>
+
+    {/* Right Side: Works 6, 7, 8, and 9 */}
+    <div className="flex flex-col gap-4 sm:w-1/2">
+      {/* Row 1: Work 6 and Work 7 */}
+      <div className="flex gap-4">
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-48 h-28 sm:h-36">
+          <img
+            src={worksData[5].image}
+            alt="Work 6"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
+        </div>
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-40 h-28 sm:h-36">
+          <img
+            src={worksData[6].image}
+            alt="Work 7"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
+        </div>
+      </div>
+
+      {/* Row 2: Work 8 and Work 9 */}
+      <div className="flex gap-4">
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-40 h-28 sm:h-36">
+          <img
+            src={worksData[7].image}
+            alt="Work 8"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
+        </div>
+        <div className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-48 h-28 sm:h-36">
+          <img
+            src={worksData[8].image}
+            alt="Work 9"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h3 className="text-white font-semibold text-lg">View Project</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
 
-// Example product data
-const productData = [
-  { name: "Blogging Website", price: "$19", image: "path-to-image" },
-  { name: "E-Commerce Website", price: "$19", image: "path-to-image" },
-  { name: "Portfolio Website", price: "$30", image: "path-to-image" },
-  { name: "Marketing Website", price: "$16", image: "path-to-image" },
-  { name: "Digital Website", price: "$12", image: "path-to-image" },
-  { name: "Wedding Website", price: "$67", image: "path-to-image" },
-  { name: "Startup Website", price: "$12", image: "path-to-image" },
-  { name: "College Website", price: "$87", image: "path-to-image" },
+export default Home;
+
+// Sample data for testing
+const trendingWebsites = [
+  { name: "Website 1", image: "https://via.placeholder.com/300x200" },
+  { name: "Website 2", image: "https://via.placeholder.com/300x200" },
+  { name: "Website 3", image: "https://via.placeholder.com/300x200" },
+  { name: "Website 4", image: "https://via.placeholder.com/300x200" },
+  { name: "Website 5", image: "https://via.placeholder.com/300x200" },
 ];
 
-const trendingWebsites = [
-  { name: "WordPress Theme Websites", image: "path-to-wordpress-image" },
-  { name: "Portfolio Theme Websites", image: "path-to-portfolio-image" },
-  { name: "E-Commerce Theme Websites", image: "path-to-ecommerce-image" },
+const productData = [
+  {
+    name: "Product 1",
+    price: "$99",
+    image: "https://via.placeholder.com/300x200",
+  },
+  {
+    name: "Product 2",
+    price: "$199",
+    image: "https://via.placeholder.com/300x200",
+  },
+  {
+    name: "Product 3",
+    price: "$299",
+    image: "https://via.placeholder.com/300x200",
+  },
+  {
+    name: "Product 4",
+    price: "$399",
+    image: "https://via.placeholder.com/300x200",
+  },
 ];
 
 const worksData = [
-  { image: "path-to-work-image1" },
-  { image: "path-to-work-image2" },
-  { image: "path-to-work-image3" },
+  { image: "https://via.placeholder.com/300x200?text=Work+2" },
+  { image: "https://via.placeholder.com/300x200?text=Work+2" },
+  { image: "https://via.placeholder.com/300x200?text=Work+3" },
+  { image: "https://via.placeholder.com/300x200?text=Work+4" },
+  { image: "https://via.placeholder.com/300x200?text=Work+5" },
+  { image: "https://via.placeholder.com/300x200?text=Work+6" },
+  { image: "https://via.placeholder.com/300x200?text=Work+7" },
+  { image: "https://via.placeholder.com/300x200?text=Work+8" },
+  { image: "https://via.placeholder.com/300x200?text=Work+9" },
 ];
-
-export default Home;
