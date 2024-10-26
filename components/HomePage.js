@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import "tailwindcss/tailwind.css";
 
 const Home = () => {
   const scrollContainerRef = useRef(null);

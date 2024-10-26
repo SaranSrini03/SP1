@@ -1,5 +1,4 @@
-// components/Header.js
-"use client";
+"use client"; // Keep this if you're using hooks like useState
 import { useState } from 'react';
 import Link from 'next/link';
 import { FaUser, FaSearch, FaHeart, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
@@ -12,7 +11,7 @@ const Header = () => {
     };
 
     return (
-        <header className="flex justify-between items-center p-4 bg-white shadow">
+        <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-white shadow">
             <div className="flex items-center">
                 <h1 className="text-xl font-bold text-gray-800">StillProfit</h1>
             </div>
