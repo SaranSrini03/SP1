@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import "../app/globals.css"
 import "tailwindcss/tailwind.css";
 
 const Home = () => {
