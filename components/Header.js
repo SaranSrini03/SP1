@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FaUser, FaSearch, FaHeart, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
+import "tailwindcss/tailwind.css";
+
 
 const Header = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -1,6 +1,8 @@
 // components/Footer.js
 import Link from 'next/link';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import "tailwindcss/tailwind.css";
+
 
 const Footer = () => {
     return (
