@@ -219,7 +219,7 @@ const Home = () => {
     </div>
 
     {/* Center Work: Work 5 */}
-    <div className="flex justify-center items-center mx-0 mb-4 w-full sm:mb-0 sm:w-1/2">
+    <div className="flex justify-center items-center mr-10 mb-4 w-full sm:mb-0 sm:w-1/2">
       <div className="group relative overflow-hidden rounded-lg  shadow-md hover:shadow-lg transition-shadow duration-300  sm:m-0 mt-10 mb-10 w-full h-80 sm:w-68 sm:h-58">
         <img
           src={worksData[4].image}
