@@ -44,9 +44,17 @@ const Home = () => {
   return (
     <div className="w-full px-4 py-8 bg-white">
       {/* Hero Section */}
-      <section className="flex flex-col lg:flex-row items-center gap-6 mb-12">
+      <section
+        className="flex flex-col lg:flex-row items-center gap-6 mb-12 h-96"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", // Replace with your image URL
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="lg:w-1/2" />
-        <div className="lg:w-1/2 text-center lg:text-left lg:pl-12">
+        <div className="text-center lg:text-left m-5 py-10 lg:pl-12 bg-white bg-opacity-50 backdrop-blur-[40px] lg:py-10 lg:px-16 rounded-lg shadow-lg">
           <h3 className="text-lg sm:text-xl font-semibold text-blue-700">
             New Arrival
           </h3>
@@ -57,7 +65,7 @@ const Home = () => {
             Check out our new templates and order now to create beautiful
             websites for your business, portfolio, or online store.
           </p>
-          <button className="mt-6 px-10 py-2 bg-blue-700 text-white hover:bg-blue-600 transition">
+          <button className="mt-6 px-14 py-2 bg-blue-700 text-white hover:bg-blue-600 transition">
             Buy Now
           </button>
         </div>
