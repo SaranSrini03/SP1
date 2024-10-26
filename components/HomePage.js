@@ -81,7 +81,7 @@ const Home = () => {
           {trendingWebsites.map((website, index) => (
             <div
               key={index}
-              className="border border-black p-5 shadow-md hover:shadow-lg transition-shadow w-40 h-72 sm:w-64"
+              className="border border-black p-5 shadow-md hover:shadow-lg transition-shadow w-46 h-72 sm:w-64"
             >
               <img
                 src={website.image}
