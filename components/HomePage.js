@@ -66,7 +66,7 @@ const Home = () => {
           <h1 className="text-2xl sm:text-4xl font-bold mt-2">
             Discover Our <br /> New Collection
           </h1>
-          <p className="text-sm px-5 sm:text-sm sm:text-base text-gray-600 mt-4 max-w-md mx-auto lg:mx-0">
+          <p className="text-sm px-5 sm:text-sm text-gray-600 mt-4 max-w-md mx-auto lg:mx-0">
             Check out our new templates and order now to create beautiful
             websites for your business, portfolio, or online store.
           </p>
